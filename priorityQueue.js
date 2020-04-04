@@ -5,10 +5,11 @@ function PriorityQueue () {
       console.log(this.collection);
     };
 
+    
     function insert (element, indexToInsert) {
       let collectionStart = this.collection.slice(0, indexToInsert);
       collectionStart.push(element);
-      let collectionEnd = this.collection.slice(indexToInsert, collection.length)
+      let collectionEnd = this.collection.slice(indexToInsert, this.collection.length)
       this.collection = collectionStart.concat(collectionEnd);
     }
 
@@ -18,8 +19,15 @@ function PriorityQueue () {
       let inserted = false;
 
       for (let i = 0; i < this.collection.length; i++) {
-        if (elementToInsert[1] < this.collection[i][1]) { 
+        let currentCollectionElement = this.collection[i];
+        if (elementToInsert[1] < currentCollectionElement[1]) { 
+
           insert(elementToInsert, i);
+
+          //let collectionStart = this.collection(slice(0, i));
+          //let collectionEnd = this.collection.slice(i, this.collection.length);
+
+
           inserted = true;
           break;
         }
@@ -56,8 +64,9 @@ myQueue.collection = [['kitten', 2], ['dog', 4], ['rabbit', 6]];
 
 document.getElementById("debug0").innerHTML = myQueue.collection;
 
-myQueue.insert(['human', 0], 0);
-document.getElementById("debug1").innerHTML = "Test";
+myQueue.enqueue(['human', 3]);
+
+document.getElementById("debug1").innerHTML = myQueue.collection;
 
 /*
 myQueue.enqueue(['human', 3]);
