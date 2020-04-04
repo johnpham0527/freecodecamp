@@ -16,27 +16,18 @@ function PriorityQueue () {
     // Only change code below this line
     this.enqueue = (elementToInsert) => { //format: ['human', 1]
       
-      let inserted = false;
-
       for (let i = 0; i < this.collection.length; i++) {
         let currentCollectionElement = this.collection[i];
-        if (elementToInsert[1] < currentCollectionElement[1]) { 
-
-          //insert(elementToInsert, i);
-
+        if (elementToInsert[1] < currentCollectionElement[1]) { //insert element
           let collectionStart = this.collection.slice(0, i);
           collectionStart.push(elementToInsert);
           let collectionEnd = this.collection.slice(i, this.collection.length);
-
-
-          inserted = true;
+          this.collection = collectionStart.concat(collectionEnd);
           break;
         }
       }
 
-      if (inserted === false) {
-        this.collection.push(elementToInsert);
-      }
+        this.collection.push(elementToInsert); //insert at the end, since it hasn't been inserted yet
 
     };
 
