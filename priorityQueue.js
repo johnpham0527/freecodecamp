@@ -16,11 +16,14 @@ function PriorityQueue () {
         currentElement = this.collection[i];
 
         if (priorityValueOfElementToInsert < currentElement[1]) { //
-          indexToInsert = i;
           break;
         }
-        else if (priorityValueOfElementToInsert === currentElement[1]) { //
+        else { 
           indexToInsert = i;
+
+          if (i+1 === this.collection.length) { //there are no more elements to search, so insert it at the end
+            indexToInsert++;
+          }
         }
       }
 
@@ -119,8 +122,8 @@ function PriorityQueue () {
 
 
 let myQueue = new PriorityQueue();
-//myQueue.collection = [['kitten', 2], ['dog', 2], ['rabbit', 2]];
-myQueue.collection = [['kitten', 2]];
+myQueue.collection = [['kitten', 2], ['dog', 2], ['rabbit', 2]];
+//myQueue.collection = [['kitten', 2]];
 
 document.getElementById("debug0").innerHTML = myQueue.collection;
 
