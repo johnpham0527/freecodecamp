@@ -6,37 +6,32 @@ function PriorityQueue () {
     };
 
     // Only change code below this line
-    this.enqueue = (element) => { //format: ['human', 1]
-      this.collection.unshift(element); //add this to the front of the queue
-    };
+    this.enqueue = (elementToInsert) => { //format: ['human', 1]
+      let priorityValueOfElementToInsert = elementToInsert[1];
+      let indexToInsert = 0;
 
-    this.dequeue = () => {
-      //Initial variables
-      let priorityValue = 0;
-      let indexToReturn = 0;
-      let currentElement = [];
-
-      for (let i = 0; i < this.collection.length; i++) { //traverse through collection array
+      for (let i = 0; i < this.collection.length; i++) {//traverse through the collection array
         currentElement = this.collection[i];
-        if (i === 0) {
-          priorityValue = currentElement[1]; //set the initial priorityValue to the current element's value
+
+        if (priorityValueOfElementToInsert < currentElement[1]) { //
+          indexToInsert = i;
+          break;
         }
-        else {
-          if (priorityValue > currentElement[1]) { //the current element has a higher priority, so set it the the element to be returned
-            priorityValue = currentElement[1]; //set the priorityValue to the current element
-            indexToReturn = i; //store the index of the current element
-          }
+        else if (priorityValueOfElementToInsert === currentElement[1]) { //
+          indexToInsert = i;
         }
       }
 
-      let elementToDequeue = this.collection[indexToReturn];
-      
-      let collectionStart = this.collection.slice(0, indexToReturn);
-      let collectionEnd = this.collection.slice(indexToReturn+1, this.collection.length);
+      let collectionStart = this.collection.slice(0, indexToInsert);
+      let collectionEnd = this.collection.slice(indexToInsert, this.collection.length)
+      collectionStart.push(elementToInsert);
 
       this.collection = collectionStart.concat(collectionEnd);
 
-      return elementToDequeue[0];
+    };
+
+    this.dequeue = () => {
+      return this.collection.shift()[0] //the first item in the queue is the priority, so dequeue it
     };
 
     this.size = () => {
@@ -52,6 +47,37 @@ function PriorityQueue () {
     };
     // Only change code above this line
 }
+
+//Old dequeue code
+    /*
+      //Initial variables
+      let priorityValue = 0;
+      let indexToReturn = 0;
+      let currentElement = [];
+
+      for (let i = 0; i < this.collection.length; i++) { //traverse through collection array
+        currentElement = this.collection[i];
+        if (i === 0) {
+          priorityValue = currentElement[1]; //set the initial priorityValue to the current element's value
+        }
+        else {
+          if (priorityValue < currentElement[1]) { //the current element has a higher priority, so set it the the element to be returned
+            priorityValue = currentElement[1]; //set the priorityValue to the current element
+            indexToReturn = i; //store the index of the current element
+          }
+        }
+      }
+
+      let elementToDequeue = this.collection[indexToReturn];
+      
+      let collectionStart = this.collection.slice(0, indexToReturn);
+      let collectionEnd = this.collection.slice(indexToReturn+1, this.collection.length);
+
+      this.collection = collectionStart.concat(collectionEnd);
+
+      return elementToDequeue[0];
+    */
+
 //Old enqueue code
       /*
       console.log("Before: " + this.collection + " | Adding: " + element);
@@ -93,6 +119,10 @@ function PriorityQueue () {
 let myQueue = new PriorityQueue();
 myQueue.collection = [['kitten', 2], ['dog', 2], ['rabbit', 2]];
 myQueue.enqueue(['human', 1]);
-myQueue.dequeue();
+
 document.getElementById("debug1").innerHTML = myQueue.collection.map( element => element[0] + "," + element[1] + " ");
 document.getElementById("debug2").innerHTML = myQueue.isEmpty();
+
+let removed = myQueue.dequeue();
+
+document.getElementById("debug3").innerHTML = removed;
