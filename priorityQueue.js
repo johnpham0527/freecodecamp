@@ -3,8 +3,50 @@ function PriorityQueue () {
     this.printCollection = function() {
       console.log(this.collection);
     };
+
     // Only change code below this line
-    this.enqueue = (element) => {
+    this.enqueue = (element) => { //format: ['human', 1]
+      this.collection.unshift(element); //add this to the front of the queue
+    };
+
+    this.dequeue = () => {
+      //Initial variables
+      let priorityValue = 0;
+      let indexToReturn = 0;
+      let currentElement = [];
+
+      for (let i = 0; i < this.collection.length; i++) { //traverse through collection array
+        currentElement = this.collection[i];
+        if (i === 0) {
+          priorityValue = currentElement[1]; //set the initial priorityValue
+        }
+        else {
+          if (priorityValue > currentElement[1]) { //the current element has a higher priority
+            priorityValue = currentElement[1];
+            indexToReturn = i;
+          }
+        }
+      }
+
+      let elementToDequeue = this.collection.shift();
+      return elementToDequeue[0];
+    };
+
+    this.size = () => {
+      return this.collection.length;
+    };
+
+    this.front = () => {
+      return this.collection[0][0];
+    };
+
+    this.isEmpty = () => {
+      return this.collection.length === 0;
+    };
+    // Only change code above this line
+}
+//Old enqueue code
+      /*
       console.log("Before: " + this.collection + " | Adding: " + element);
       let findIndex = -1;
       for (let i = 0; i < this.collection.length; i++) {
@@ -38,18 +80,4 @@ function PriorityQueue () {
       }
       console.log(">>> After: " + this.collection.join('; '));
       console.log("");
-    };
-    this.dequeue = () => {
-      return this.collection.shift();
-    };
-    this.size = () => {
-      return this.collection.length;
-    };
-    this.front = () => {
-      return this.collection[0][0];
-    };
-    this.isEmpty = () => {
-      return this.collection.length === 0;
-    };
-    // Only change code above this line
-}
+      */
