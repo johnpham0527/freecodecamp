@@ -126,3 +126,5 @@ document.getElementById("debug2").innerHTML = myQueue.isEmpty();
 let removed = myQueue.dequeue();
 
 document.getElementById("debug3").innerHTML = removed;
+document.getElementById("debug4").innerHTML = myQueue.size();
+document.getElementById("debug5").innerHTML = myQueue.collection.map( element => element[0] + "," + element[1] + " ");
