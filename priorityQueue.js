@@ -49,6 +49,58 @@ function PriorityQueue () {
     // Only change code above this line
 }
 
+
+let myQueue = new PriorityQueue();
+myQueue.collection = [['kitten', 2], ['dog', 4], ['rabbit', 6]];
+//myQueue.collection = [['kitten', 2]];
+
+document.getElementById("debug0").innerHTML = myQueue.collection;
+
+myQueue.insert(['human', 0], 0);
+document.getElementById("debug1").innerHTML = "Test";
+
+/*
+myQueue.enqueue(['human', 3]);
+
+document.getElementById("debug1").innerHTML = myQueue.collection;
+document.getElementById("debug2").innerHTML = myQueue.isEmpty();
+
+let removed = myQueue.dequeue();
+
+document.getElementById("debug3").innerHTML = removed;
+document.getElementById("debug4").innerHTML = myQueue.size();
+document.getElementById("debug5").innerHTML = myQueue.collection;
+*/
+
+
+/* Old Enqueue Code 2 */
+/*
+/*
+      let priorityValueOfElementToInsert = elementToInsert[1];
+      let indexToInsert = 0;
+
+      for (let i = 0; i < this.collection.length; i++) {//traverse through the collection array
+        currentElement = this.collection[i];
+
+        if (priorityValueOfElementToInsert < currentElement[1]) { //
+          break;
+        }
+        else { 
+          indexToInsert = i;
+
+          if (i+1 === this.collection.length) { //there are no more elements to search, so insert it at the end
+            indexToInsert++;
+          }
+        }
+      }
+
+      let collectionStart = this.collection.slice(0, indexToInsert);
+      let collectionEnd = this.collection.slice(indexToInsert, this.collection.length)
+      collectionStart.push(elementToInsert);
+
+      this.collection = collectionStart.concat(collectionEnd);
+*/
+
 //Old dequeue code
     /*
       //Initial variables
@@ -115,53 +167,3 @@ function PriorityQueue () {
       console.log(">>> After: " + this.collection.join('; '));
       console.log("");
       */
-
-    
-
-let myQueue = new PriorityQueue();
-myQueue.collection = [['kitten', 2], ['dog', 4], ['rabbit', 6]];
-//myQueue.collection = [['kitten', 2]];
-
-document.getElementById("debug0").innerHTML = myQueue.collection;
-
-/*
-myQueue.enqueue(['human', 3]);
-
-document.getElementById("debug1").innerHTML = myQueue.collection;
-document.getElementById("debug2").innerHTML = myQueue.isEmpty();
-
-let removed = myQueue.dequeue();
-
-document.getElementById("debug3").innerHTML = removed;
-document.getElementById("debug4").innerHTML = myQueue.size();
-document.getElementById("debug5").innerHTML = myQueue.collection;
-*/
-
-
-/* Old Enqueue Code 2 */
-/*
-/*
-      let priorityValueOfElementToInsert = elementToInsert[1];
-      let indexToInsert = 0;
-
-      for (let i = 0; i < this.collection.length; i++) {//traverse through the collection array
-        currentElement = this.collection[i];
-
-        if (priorityValueOfElementToInsert < currentElement[1]) { //
-          break;
-        }
-        else { 
-          indexToInsert = i;
-
-          if (i+1 === this.collection.length) { //there are no more elements to search, so insert it at the end
-            indexToInsert++;
-          }
-        }
-      }
-
-      let collectionStart = this.collection.slice(0, indexToInsert);
-      let collectionEnd = this.collection.slice(indexToInsert, this.collection.length)
-      collectionStart.push(elementToInsert);
-
-      this.collection = collectionStart.concat(collectionEnd);
-*/
