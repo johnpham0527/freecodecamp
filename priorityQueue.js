@@ -1,4 +1,5 @@
 function PriorityQueue () {
+  
     this.collection = [];
     this.printCollection = function() {
       console.log(this.collection);
@@ -18,17 +19,18 @@ function PriorityQueue () {
       for (let i = 0; i < this.collection.length; i++) { //traverse through collection array
         currentElement = this.collection[i];
         if (i === 0) {
-          priorityValue = currentElement[1]; //set the initial priorityValue
+          priorityValue = currentElement[1]; //set the initial priorityValue to the current element's value
         }
         else {
-          if (priorityValue > currentElement[1]) { //the current element has a higher priority
-            priorityValue = currentElement[1];
-            indexToReturn = i;
+          if (priorityValue > currentElement[1]) { //the current element has a higher priority, so set it the the element to be returned
+            priorityValue = currentElement[1]; //set the priorityValue to the current element
+            indexToReturn = i; //store the index of the current element
           }
         }
       }
 
-      let elementToDequeue = this.collection.shift();
+      let elementToDequeue = this.collection[indexToReturn];
+      
       return elementToDequeue[0];
     };
 
