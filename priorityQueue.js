@@ -22,10 +22,11 @@ function PriorityQueue () {
         let currentCollectionElement = this.collection[i];
         if (elementToInsert[1] < currentCollectionElement[1]) { 
 
-          insert(elementToInsert, i);
+          //insert(elementToInsert, i);
 
-          //let collectionStart = this.collection(slice(0, i));
-          //let collectionEnd = this.collection.slice(i, this.collection.length);
+          let collectionStart = this.collection.slice(0, i);
+          collectionStart.push(elementToInsert);
+          let collectionEnd = this.collection.slice(i, this.collection.length);
 
 
           inserted = true;
