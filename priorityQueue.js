@@ -31,6 +31,11 @@ function PriorityQueue () {
 
       let elementToDequeue = this.collection[indexToReturn];
       
+      let collectionStart = this.collection.slice(0, indexToReturn);
+      let collectionEnd = this.collection.slice(indexToReturn+1, this.collection.length);
+
+      this.collection = collectionStart.concat(collectionEnd);
+
       return elementToDequeue[0];
     };
 
@@ -83,3 +88,11 @@ function PriorityQueue () {
       console.log(">>> After: " + this.collection.join('; '));
       console.log("");
       */
+
+
+let myQueue = new PriorityQueue();
+myQueue.collection = [['kitten', 2], ['dog', 2], ['rabbit', 2]];
+myQueue.enqueue(['human', 1]);
+myQueue.dequeue();
+document.getElementById("debug1").innerHTML = myQueue.collection.map( element => element[0] + "," + element[1] + " ");
+document.getElementById("debug2").innerHTML = myQueue.isEmpty();
