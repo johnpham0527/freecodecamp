@@ -23,7 +23,7 @@ function PriorityQueue () {
           collectionStart.push(elementToInsert);
           let collectionEnd = this.collection.slice(i, this.collection.length);
           this.collection = collectionStart.concat(collectionEnd);
-          break;
+          return;
         }
       }
 
@@ -56,7 +56,7 @@ myQueue.collection = [['kitten', 2], ['dog', 4], ['rabbit', 6]];
 
 document.getElementById("debug0").innerHTML = myQueue.collection;
 
-myQueue.enqueue(['human', 3]);
+myQueue.enqueue(['human', 7]);
 
 document.getElementById("debug1").innerHTML = myQueue.collection;
 
@@ -65,13 +65,15 @@ myQueue.enqueue(['human', 3]);
 
 document.getElementById("debug1").innerHTML = myQueue.collection;
 document.getElementById("debug2").innerHTML = myQueue.isEmpty();
-
+*/
 let removed = myQueue.dequeue();
 
 document.getElementById("debug3").innerHTML = removed;
+/*
 document.getElementById("debug4").innerHTML = myQueue.size();
-document.getElementById("debug5").innerHTML = myQueue.collection;
 */
+document.getElementById("debug5").innerHTML = myQueue.collection;
+
 
 
 /* Old Enqueue Code 2 */
