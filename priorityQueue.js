@@ -7,6 +7,8 @@ function PriorityQueue () {
 
     // Only change code below this line
     this.enqueue = (elementToInsert) => { //format: ['human', 1]
+
+
       let priorityValueOfElementToInsert = elementToInsert[1];
       let indexToInsert = 0;
 
@@ -117,14 +119,18 @@ function PriorityQueue () {
 
 
 let myQueue = new PriorityQueue();
-myQueue.collection = [['kitten', 2], ['dog', 2], ['rabbit', 2]];
-myQueue.enqueue(['human', 1]);
+//myQueue.collection = [['kitten', 2], ['dog', 2], ['rabbit', 2]];
+myQueue.collection = [['kitten', 2]];
 
-document.getElementById("debug1").innerHTML = myQueue.collection.map( element => element[0] + "," + element[1] + " ");
+document.getElementById("debug0").innerHTML = myQueue.collection;
+
+myQueue.enqueue(['human', 3]);
+
+document.getElementById("debug1").innerHTML = myQueue.collection;
 document.getElementById("debug2").innerHTML = myQueue.isEmpty();
 
 let removed = myQueue.dequeue();
 
 document.getElementById("debug3").innerHTML = removed;
 document.getElementById("debug4").innerHTML = myQueue.size();
-document.getElementById("debug5").innerHTML = myQueue.collection.map( element => element[0] + "," + element[1] + " ");
+document.getElementById("debug5").innerHTML = myQueue.collection;
