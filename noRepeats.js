@@ -19,8 +19,9 @@ function permAlone(str) {
         return false;
     }
 
-    let noRepeatsArray = [];
+
     let allPermutationsArray = generatePermutations(str);
+    let noRepeatsArray = [];
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
         let currentString = allPermutationsArray[i];
@@ -29,7 +30,7 @@ function permAlone(str) {
         }
     }
 
-    return str;
+    return noRepeatsArray.length;
 }
   
 permAlone('aab');
