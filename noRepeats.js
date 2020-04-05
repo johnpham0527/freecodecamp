@@ -1,4 +1,9 @@
 function permAlone(str) {
+
+    let noRepeatsArray = [];
+
+
+
     return str;
   }
   
