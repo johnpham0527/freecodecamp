@@ -1,11 +1,12 @@
 function permAlone(str) {
 
-    const generatePermutations = (string) => {
-
+    const generatePermutations = (string) => { //given a string, this function will generate all possible charater permutations
+        let allPermutations = [];
+        return allPermutations;
     }
 
     let noRepeatsArray = [];
-
+    let allPermutationsArray = generatePermutations(str);
 
 
 
