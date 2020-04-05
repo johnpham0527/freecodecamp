@@ -24,8 +24,9 @@ function permAlone(str) {
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
         let currentString = allPermutationsArray[i];
-
-
+        if (!containsRepeat(currentString)) {
+            noRepeatsArray.push(currentString);s
+        }
     }
 
     return str;
