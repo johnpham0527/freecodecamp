@@ -12,7 +12,10 @@ function permAlone(str) {
     let allPermutationsArray = generatePermutations(str);
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
-        
+        let currentString = allPermutationsArray[i];
+        for (let j = 0; j < currentString.length; j++) {
+            
+        }
     }
 
     return str;
