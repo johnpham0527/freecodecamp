@@ -8,15 +8,22 @@ function permAlone(str) {
         return allPermutations;
     }
 
+    const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
+        let mostRecentChar = "";
+        for (let i = 0; i < string.length; i++) {
+
+        /** Code goes here */
+
+        }
+    }
+
     let noRepeatsArray = [];
     let allPermutationsArray = generatePermutations(str);
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
         let currentString = allPermutationsArray[i];
-        let mostRecentChar = "";
-        for (let j = 0; j < currentString.length; j++) {
 
-        }
+
     }
 
     return str;
