@@ -13,8 +13,9 @@ function permAlone(str) {
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
         let currentString = allPermutationsArray[i];
+        let mostRecentChar = "";
         for (let j = 0; j < currentString.length; j++) {
-            
+
         }
     }
 
