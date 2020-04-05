@@ -1,7 +1,12 @@
 function permAlone(str) {
 
-    const swapTwoChars = (string) => { //given a string, swap the first two chars and return only the first two
+    const swapTwoCharsString = (string) => { //given a string, swap the first two chars and return only the first two
         return string[1] + string[0]; //if the string is longer than two characters, ignore everything after the first two
+    }
+
+    const swapTwoCharsArray = (array) => { //given an array of two chars, swap and return them
+        let newArray = [array[1], array[0]];
+        return newArray;
     }
 
     const generatePermutations = (string) => { //given a string, this function will generate all possible charater permutations
