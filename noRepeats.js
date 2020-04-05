@@ -10,13 +10,18 @@ function permAlone(str) {
 
     const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
         let mostRecentChar = "";
-        for (let i = 0; i < string.length; i++) {
+        for (let i = 0; i < string.length; i++) { //iterate through string
+            let currentChar = string[i];
 
-        /** Code goes here */
-
+            if (currentChar === mostRecentChar) { //a repeating character was found
+                return true;
+            }
+            else {
+                mostRecentChar = currentChar //set the most recently seen char to this current char
+            }
         }
 
-        return false;
+        return false; //a repeating character hasn't been found, so return false
     }
 
 
@@ -38,8 +43,6 @@ permAlone('aab');
 
 
 /*** Thoughts on Tackling This Problem
- * Break up the string into letters?
- * Store each letter as a key in an object?
  * 
  * I need a helper function that generates permutations and stores each permutation in an array
  * 
@@ -47,7 +50,7 @@ permAlone('aab');
  * 
  * Iterate through the permutation array
  *      Create a variable that stores the most recently seen character
- *      Iterate through each array string
+ *      Iterate through each array string -- use a helper function
  *          If current character equals the most recently seen character, skip to next array element
  *              Otherwise, set most recently seen character to current character and continue
  *          If I iterate successfully through an array string and no repeats were found, save the string in the array that stores non-repeating permutations
