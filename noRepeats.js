@@ -65,5 +65,11 @@ permAlone('aab');
  *          If I iterate successfully through an array string and no repeats were found, save the string in the array that stores non-repeating permutations
  *
  * Return the length of the array that stores non-repeating permutations
+ * 
+ * 
+ * How to Generate Permutations?
+ *  It involves iterating and swapping...
+ *  I should also do it on paper and implement.
+ *      
  *  
 */
