@@ -1,19 +1,24 @@
 function permAlone(str) {
 
+    const generatePermutations = (string) => {
+
+    }
+
     let noRepeatsArray = [];
 
 
 
+
     return str;
-  }
+}
   
-  permAlone('aab');
+permAlone('aab');
   
 
 
 /*** Thoughts on Tackling This Problem
- * Break up the string into letters
- * Store each letter as a key in an object
+ * Break up the string into letters?
+ * Store each letter as a key in an object?
  * 
  * I need a helper function that generates permutations and stores each permutation in an array
  * 
