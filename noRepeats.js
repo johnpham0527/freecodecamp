@@ -15,6 +15,8 @@ function permAlone(str) {
         /** Code goes here */
 
         }
+
+        return false;
     }
 
     let noRepeatsArray = [];
