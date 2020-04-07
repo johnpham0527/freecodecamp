@@ -124,9 +124,29 @@ permAlone('aab');
  *  The length of these is equal to total length, so push these to the permutation array
  * 
  * I will need two functions: permutation and merge
- * Permutation: if length = 1, then 
+ * Permutation returns an array of permutations
+ * Permutation takes a string
+ * Let permArray = []
+ * if string's length == 1, then push the string to permArray
+ * else:
+ *  for (let i = 0; i < string.length; i++) {
+ *      let lastIndex = string.length - 1;
+ *      let lastChar = string.slice(lastChar);
+ *      let restOfString = string.slice(0, lastChar);
+ *      permArray = merge(permutation(restOfString), lastChar);
+ * }
+ * return permArray;
  * 
- * Merge takes an array and a current string to merge
+ * Merge takes a list array and a lastChar
+ * let resultArray = [];
+ * //Loop through all of the strings in the list
+ * for each string in the given list array:
+ *  // Insert the last character into all possible positions
+ *      for (let i = 0; i < current string's length; i++) {
+ *          let newString = current string.slice(0, i) + lastChar + current string.slice(i, current string's length) 
+ *          resultArray.push(newString)
+ * }
+ * return resultArray
  */ 
 
 
