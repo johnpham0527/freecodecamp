@@ -94,9 +94,40 @@ permAlone('aab');
  * 
  * 
  * 
+ * I have a string, "ab"
+ * I'll set "a" as the first slot
+ * I will recursively process the rest of the string and append it to "a" in the first slot
+ *  I now have "b". I will set "b" as the first slot.
+ *  I will recursively process the rest of the string and append it to "b" in the first slot
+ *      Is there a string to process? No, it is empty. Return the empty string.
+ *  My string is now "b".
+ *  Is there a second slot for b? No, so return "b"
  * 
+ * Now, I'll set "b" in the first slot
  *
- */
+ * Permutation function:
+ * Given: a prefix, a current string
+ * len = current string's length
+ * If len == 1, push prefix + current string to permutation array
+ * Else: for i = 0; i < current string's length; i++
+ *  permutation(prefix + i, current string.slice(0, i) + current string.slice(i+1, len))
+ * 
+ * Another solution: merge
+ * 
+ * Given string "abc"
+ * total length = 3
+ * Start with first position: "a". Length of this is 1, which is less than total length
+ * Merge the second position before, in between, and after: "ba" "ab". Length of these is 2, which is less than total length
+ * Merge the third position before, in between and after:
+ *  "ba" -> "cba" "bca" "bac"
+ *  "ab" -> "cab" "acb" "abc"
+ *  The length of these is equal to total length, so push these to the permutation array
+ * 
+ * I will need two functions: permutation and merge
+ * Permutation: if length = 1, then 
+ * 
+ * Merge takes an array and a current string to merge
+ */ 
 
 
 
