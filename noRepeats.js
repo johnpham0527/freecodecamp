@@ -17,6 +17,13 @@ function permAlone(str) {
         return allPermutations;
     }
 
+    const merge = (arrayList, lastChar) => { //a helper function for generatePermutations
+        let resultArray = [];
+        /** Code goes here */
+
+        return resultArray;
+    }
+
     const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
         let mostRecentChar = "";
         for (let i = 0; i < string.length; i++) { //iterate through string
@@ -112,7 +119,7 @@ permAlone('aab');
  * Else: for i = 0; i < current string's length; i++
  *  permutation(prefix + i, current string.slice(0, i) + current string.slice(i+1, len))
  * 
- * Another solution: merge
+ * A solution: permutation and merge
  * 
  * Given string "abc"
  * total length = 3
