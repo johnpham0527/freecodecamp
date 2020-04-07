@@ -50,6 +50,59 @@ function permAlone(str) {
 permAlone('aab');
   
 
+/*** Permutation Practice
+ * 
+ * Given: 
+ * let str = "abcd"
+ * let arrPerm = []
+ * 
+ * Return:
+ * an array of permutations
+ * 
+ * Iterate:
+ * let i = 0
+ * str[i] is now "a"
+ *  don't swap. push current iteration to arrPerm: "abcd"
+ *  swap "a" through: "bacd" "bcad" "bcda"
+ * iterate to the next position. str[i] is now "b"
+ *  swap "b" through: "acbd" "acdb"
+ * iterate to the next position. str[i] is now "c"
+ *  swap "c" through: "abdc"
+ * ...
+ * 
+ * 
+ * 
+ * for each character in string:
+ * set it to be the first position...
+ * 
+ * 
+ * breaking down this problem using recursion:
+ * 
+ * I have a string, "abcd"
+ * I'll set "a" to take up the first slot.
+ * I will recursively call "bcd"
+ *  I'll set "b" to take up the first slot.
+ *  I will recursively call "cd"
+ *      I'll set up "c" to take up the first slot.
+ *      I will recursively call "d"
+ *          I'll set up "d" to take up the first slot.
+ *              I will recursively call "d"
+ *                  I have an empty string. Return ""
+ *              I will add "" to "d". Return "d"
+ *          I will add "d" to "c" and I now have "cd". Return "cd"
+ *      I will add 
+ * 
+ * 
+ * 
+ * 
+ *
+ */
+
+
+
+
+
+
 
 /*** Thoughts on Tackling This Problem
  * 
