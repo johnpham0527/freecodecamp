@@ -11,8 +11,19 @@ function permAlone(str) {
 
     const generatePermutations = (string) => { //given a string, this function will generate all possible charater permutations
         let allPermutations = [];
+        let len = string.length;
 
-        /** Code goes here */
+        if (len === 1) {
+            allPermutations.push(string);
+        }
+        else {
+            for (let i = 0; i < len; i++) {
+                let lastIndex = len - 1;
+                let lastChar = string.slice(len-1); //store the last character of string
+                let restOfString = string.slice(0, len-1); //store everything up to last character
+                allPermutations = merge(generatePermutations(restOfString), lastChar); //recursively merge the last character into the rest of the string
+            }
+        }
 
         return allPermutations;
     }
@@ -23,6 +34,32 @@ function permAlone(str) {
 
         return resultArray;
     }
+
+/* I will need two functions: permutation and merge
+    * Permutation returns an array of permutations
+    * Permutation takes a string
+    * Let permArray = []
+    * if string's length == 1, then push the string to permArray
+    * else:
+    *  for (let i = 0; i < string.length; i++) {
+    *      let lastIndex = string.length - 1;
+    *      let lastChar = string.slice(lastChar);
+    *      let restOfString = string.slice(0, lastChar);
+    *      permArray = merge(permutation(restOfString), lastChar);
+    * }
+    * return permArray;
+    * 
+    * Merge takes a list array and a lastChar
+    * let resultArray = [];
+    * //Loop through all of the strings in the list
+    * for each string in the given list array:
+    *  // Insert the last character into all possible positions
+    *      for (let i = 0; i < current string's length; i++) {
+    *          let newString = current string.slice(0, i) + lastChar + current string.slice(i, current string's length) 
+    *          resultArray.push(newString)
+    * }
+    * return resultArray
+    */ 
 
     const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
         let mostRecentChar = "";
@@ -129,32 +166,7 @@ permAlone('aab');
  *  "ba" -> "cba" "bca" "bac"
  *  "ab" -> "cab" "acb" "abc"
  *  The length of these is equal to total length, so push these to the permutation array
- * 
- * I will need two functions: permutation and merge
- * Permutation returns an array of permutations
- * Permutation takes a string
- * Let permArray = []
- * if string's length == 1, then push the string to permArray
- * else:
- *  for (let i = 0; i < string.length; i++) {
- *      let lastIndex = string.length - 1;
- *      let lastChar = string.slice(lastChar);
- *      let restOfString = string.slice(0, lastChar);
- *      permArray = merge(permutation(restOfString), lastChar);
- * }
- * return permArray;
- * 
- * Merge takes a list array and a lastChar
- * let resultArray = [];
- * //Loop through all of the strings in the list
- * for each string in the given list array:
- *  // Insert the last character into all possible positions
- *      for (let i = 0; i < current string's length; i++) {
- *          let newString = current string.slice(0, i) + lastChar + current string.slice(i, current string's length) 
- *          resultArray.push(newString)
- * }
- * return resultArray
- */ 
+ */
 
 
 
