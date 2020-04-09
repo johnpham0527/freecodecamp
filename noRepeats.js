@@ -31,6 +31,13 @@ function permAlone(str) {
     const merge = (arrayList, lastChar) => { //a helper function for generatePermutations
         let resultArray = [];
         /** Code goes here */
+        for (let i = 0; i < arrayList.length; i++) {
+            let currentString = arrayList[i];
+            for (let j = 0; j < currentString.length; j++) {
+                let newString = currentString.slice(0, j) + lastChar + currentString.slice(j, currentString.length); //create a new string that merges lastChar into current string
+                resultArray.push(newString)
+            }
+        }
 
         return resultArray;
     }
