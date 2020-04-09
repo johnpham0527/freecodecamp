@@ -22,7 +22,8 @@ function permAlone(str) {
                 let lastChar = string.slice(len-1); //store the last character of string
                 let restOfString = string.slice(0, len-1); //store everything up to last character
                 document.getElementById("debug1").innerHTML = restOfString;
-                allPermutations.push(merge(generatePermutations(restOfString), lastChar)); //recursively merge the last character into the rest of the string
+                let newPermutation = merge(generatePermutations(restOfString), lastChar); //recursively merge the last character into the rest of the string
+                allPermutations.push(newPermutation); //push new permutation into the array
             }
         }
 
