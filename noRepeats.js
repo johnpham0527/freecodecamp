@@ -1,16 +1,5 @@
 function permAlone(str) {
 
-    const swapTwoCharsString = (string) => { //given a string, swap the first two chars and return only the first two
-        return string[1] + string[0]; //if the string is longer than two characters, ignore everything after the first two
-    }
-
-    const swapTwoCharsArray = (array) => { //given an array of two chars, swap and return them
-        let newArray = [array[1], array[0]];
-        return newArray;
-    }
-
-
-
     const generatePermutations2 = (restOfString, current = "") => {
         let allPermutations = [];
         let len = restOfString.length;
@@ -49,12 +38,7 @@ function permAlone(str) {
         return false; //a repeating character hasn't been found, so return false
     }
 
-    
-
     let allPermutationsArray = generatePermutations2(str);
-
-    
-
     let noRepeatsArray = [];
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
@@ -63,7 +47,7 @@ function permAlone(str) {
             noRepeatsArray.push(currentString);
         }
     }
-    /* There is an error with no repeats array algorithm */
+    /* There is an error with containsRepeat algorithm */
 
     document.getElementById("debug0").innerHTML = "Given string: " + str;
     document.getElementById("debug1").innerHTML = "All permutations: " + allPermutationsArray;
@@ -239,5 +223,17 @@ permAlone('aab');
         }
 
         return resultArray;
+    }
+    */
+
+
+    /* More old code
+        const swapTwoCharsString = (string) => { //given a string, swap the first two chars and return only the first two
+        return string[1] + string[0]; //if the string is longer than two characters, ignore everything after the first two
+    }
+
+    const swapTwoCharsArray = (array) => { //given an array of two chars, swap and return them
+        let newArray = [array[1], array[0]];
+        return newArray;
     }
     */
