@@ -49,20 +49,22 @@ function permAlone(str) {
         return false; //a repeating character hasn't been found, so return false
     }
 
-    //document.getElementById("debug0").innerHTML = "Given string: " + str;
+    document.getElementById("debug0").innerHTML = "Given string: " + str;
 
     let allPermutationsArray = generatePermutations2(str);
 
-    //document.getElementById("debug5").innerHTML = allPermutationsArray;
+    document.getElementById("debug5").innerHTML = allPermutationsArray;
 
     let noRepeatsArray = [];
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
         let currentString = allPermutationsArray[i];
         if (!containsRepeat(currentString)) {
-            noRepeatsArray.push(currentString);s
+            noRepeatsArray.push(currentString);
         }
     }
+
+    document.getElementById("debug1").innerHTML = "noRepeatsArray: " + noRepeatsArray;
 
     return noRepeatsArray.length;
 }
