@@ -55,9 +55,9 @@ function permAlone(str) {
         }
         else {
             for (let i = 0; i < len; i++) {
-                let firstChar = string[i]; //take turns being the first character
-                let firstPartOfString = string.slice(0, i); 
-                let lastPartOfString = string.slice(i, string.length); 
+                let firstChar = restOfString[i]; //take turns being the first character
+                let firstPartOfString = restOfString.slice(0, i); 
+                let lastPartOfString = restOfString.slice(i, len); 
                 let newString = firstPartOfString + lastPartOfString;
                 let newPermutation = generatePermutations2(newString, current + firstChar);
                 allPermutations.push(newPermutation);
