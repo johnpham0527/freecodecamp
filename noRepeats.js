@@ -9,42 +9,7 @@ function permAlone(str) {
         return newArray;
     }
 
-    const generatePermutations = (string) => { //given a string, this function will generate all possible charater permutations
-        let allPermutations = [];
-        let len = string.length;
 
-        if (len === 1) {
-            allPermutations.push(string);
-        }
-        else {
-            for (let i = 0; i < len; i++) {
-                let lastIndex = len - 1 - i;
-                let lastChar = string.slice(lastIndex); //store the last character of string
-                let restOfString = string.slice(0, lastIndex); //store everything up to last character
-                document.getElementById("debug1").innerHTML = restOfString;
-                let newPermutation = merge(generatePermutations(restOfString), lastChar); //recursively merge the last character into the rest of the string
-                allPermutations.push(newPermutation); //push new permutation into the array
-            }
-        }
-
-        return allPermutations;
-    }
-
-    const merge = (arrayList, lastChar) => { //a helper function for generatePermutations
-
-        document.getElementById("debug2").innerHTML = arrayList;
-
-        let resultArray = [];
-        for (let i = 0; i < arrayList.length; i++) {
-            let currentString = arrayList[i];
-            for (let j = 0; j < currentString.length; j++) {
-                let newString = currentString.slice(0, j) + lastChar + currentString.slice(j, currentString.length); //create a new string that merges lastChar into current string
-                resultArray.push(newString)
-            }
-        }
-
-        return resultArray;
-    }
 
     const generatePermutations2 = (restOfString, current = "") => {
         let allPermutations = [];
@@ -60,27 +25,13 @@ function permAlone(str) {
                 let lastPartOfString = restOfString.slice(i+1, len); 
                 let newString = firstPartOfString + lastPartOfString;
                 let newCurrent = current + firstChar;
-                let newPermutation = generatePermutations2(newString, newCurrent);
+                let newPermutation = generatePermutations2(newString, newCurrent); //recursive call
                 allPermutations.push(newPermutation);
             }
         }
 
         return allPermutations;
     }
-
-/* New approach
-Given a string "abc"
-Let each letter take turns being the first
-Recursively call permutation on rest of the string
-    Next letter is the first letter
-    Recursively call...
-        Base case: the string is one character long
-            Store the string in an array
-            Return that array
-        
-
-*/
-
 
     const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
         let mostRecentChar = "";
@@ -98,11 +49,11 @@ Recursively call permutation on rest of the string
         return false; //a repeating character hasn't been found, so return false
     }
 
-    document.getElementById("debug0").innerHTML = "Given string: " + str;
+    //document.getElementById("debug0").innerHTML = "Given string: " + str;
 
     let allPermutationsArray = generatePermutations2(str);
 
-    document.getElementById("debug5").innerHTML = allPermutationsArray;
+    //document.getElementById("debug5").innerHTML = allPermutationsArray;
 
     let noRepeatsArray = [];
 
@@ -246,3 +197,42 @@ permAlone('abc');
  *      
  *  
 */
+
+    /* Old code
+    const generatePermutations = (string) => { //given a string, this function will generate all possible charater permutations
+        let allPermutations = [];
+        let len = string.length;
+
+        if (len === 1) {
+            allPermutations.push(string);
+        }
+        else {
+            for (let i = 0; i < len; i++) {
+                let lastIndex = len - 1 - i;
+                let lastChar = string.slice(lastIndex); //store the last character of string
+                let restOfString = string.slice(0, lastIndex); //store everything up to last character
+                document.getElementById("debug1").innerHTML = restOfString;
+                let newPermutation = merge(generatePermutations(restOfString), lastChar); //recursively merge the last character into the rest of the string
+                allPermutations.push(newPermutation); //push new permutation into the array
+            }
+        }
+
+        return allPermutations;
+    }
+
+    const merge = (arrayList, lastChar) => { //a helper function for generatePermutations
+
+        document.getElementById("debug2").innerHTML = arrayList;
+
+        let resultArray = [];
+        for (let i = 0; i < arrayList.length; i++) {
+            let currentString = arrayList[i];
+            for (let j = 0; j < currentString.length; j++) {
+                let newString = currentString.slice(0, j) + lastChar + currentString.slice(j, currentString.length); //create a new string that merges lastChar into current string
+                resultArray.push(newString)
+            }
+        }
+
+        return resultArray;
+    }
+    */
