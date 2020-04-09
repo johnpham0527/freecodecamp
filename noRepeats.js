@@ -59,7 +59,8 @@ function permAlone(str) {
                 let firstPartOfString = string.slice(0, i); 
                 let lastPartOfString = string.slice(i, string.length); 
                 let newString = firstPartOfString + lastPartOfString;
-                generatePermutations2(newString, current + firstChar);
+                let newPermutation = generatePermutations2(newString, current + firstChar);
+                allPermutations.push(newPermutation);
             }
         }
 
