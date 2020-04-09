@@ -46,31 +46,39 @@ function permAlone(str) {
         return resultArray;
     }
 
-/* I will need two functions: permutation and merge
-    * Permutation returns an array of permutations
-    * Permutation takes a string
-    * Let permArray = []
-    * if string's length == 1, then push the string to permArray
-    * else:
-    *  for (let i = 0; i < string.length; i++) {
-    *      let lastIndex = string.length - 1;
-    *      let lastChar = string.slice(lastChar);
-    *      let restOfString = string.slice(0, lastChar);
-    *      permArray = merge(permutation(restOfString), lastChar);
-    * }
-    * return permArray;
-    * 
-    * Merge takes a list array and a lastChar
-    * let resultArray = [];
-    * //Loop through all of the strings in the list
-    * for each string in the given list array:
-    *  // Insert the last character into all possible positions
-    *      for (let i = 0; i < current string's length; i++) {
-    *          let newString = current string.slice(0, i) + lastChar + current string.slice(i, current string's length) 
-    *          resultArray.push(newString)
-    * }
-    * return resultArray
-    */ 
+    const generatePermutations2 = (restOfString, current = "") => {
+        let allPermutations = [];
+        let len = restOfString.length;
+
+        if (len === 1) { //base case: restOfString's length is one character long
+            allPermutations.push(current + restOfString);
+        }
+        else {
+            for (let i = 0; i < len; i++) {
+                let firstChar = string[i]; //take turns being the first character
+                let firstPartOfString = string.slice(0, i); 
+                let lastPartOfString = string.slice(i, string.length); 
+                let newString = firstPartOfString + lastPartOfString;
+                generatePermutations2(newString, current + firstChar);
+            }
+        }
+
+        return allPermutations;
+    }
+
+/* New approach
+Given a string "abc"
+Let each letter take turns being the first
+Recursively call permutation on rest of the string
+    Next letter is the first letter
+    Recursively call...
+        Base case: the string is one character long
+            Store the string in an array
+            Return that array
+        
+
+*/
+
 
     const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
         let mostRecentChar = "";
@@ -90,7 +98,7 @@ function permAlone(str) {
 
     document.getElementById("debug0").innerHTML = "Given string: " + str;
 
-    let allPermutationsArray = generatePermutations(str);
+    let allPermutationsArray = generatePermutations2(str);
 
     document.getElementById("debug5").innerHTML = allPermutationsArray;
 
@@ -183,7 +191,31 @@ permAlone('abc');
  *  "ab" -> "cab" "acb" "abc"
  *  The length of these is equal to total length, so push these to the permutation array
  */
-
+/* I will need two functions: permutation and merge
+    * Permutation returns an array of permutations
+    * Permutation takes a string
+    * Let permArray = []
+    * if string's length == 1, then push the string to permArray
+    * else:
+    *  for (let i = 0; i < string.length; i++) {
+    *      let lastIndex = string.length - 1;
+    *      let lastChar = string.slice(lastChar);
+    *      let restOfString = string.slice(0, lastChar);
+    *      permArray = merge(permutation(restOfString), lastChar);
+    * }
+    * return permArray;
+    * 
+    * Merge takes a list array and a lastChar
+    * let resultArray = [];
+    * //Loop through all of the strings in the list
+    * for each string in the given list array:
+    *  // Insert the last character into all possible positions
+    *      for (let i = 0; i < current string's length; i++) {
+    *          let newString = current string.slice(0, i) + lastChar + current string.slice(i, current string's length) 
+    *          resultArray.push(newString)
+    * }
+    * return resultArray
+    */ 
 
 
 
