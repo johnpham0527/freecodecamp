@@ -18,9 +18,9 @@ function permAlone(str) {
         }
         else {
             for (let i = 0; i < len; i++) {
-                let lastIndex = len - 1;
-                let lastChar = string.slice(len-1); //store the last character of string
-                let restOfString = string.slice(0, len-1); //store everything up to last character
+                let lastIndex = len - 1 - i;
+                let lastChar = string.slice(lastIndex); //store the last character of string
+                let restOfString = string.slice(0, lastIndex); //store everything up to last character
                 document.getElementById("debug1").innerHTML = restOfString;
                 let newPermutation = merge(generatePermutations(restOfString), lastChar); //recursively merge the last character into the rest of the string
                 allPermutations.push(newPermutation); //push new permutation into the array
