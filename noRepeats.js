@@ -49,11 +49,11 @@ function permAlone(str) {
         return false; //a repeating character hasn't been found, so return false
     }
 
-    document.getElementById("debug0").innerHTML = "Given string: " + str;
+    
 
     let allPermutationsArray = generatePermutations2(str);
 
-    document.getElementById("debug5").innerHTML = allPermutationsArray;
+    
 
     let noRepeatsArray = [];
 
@@ -63,13 +63,16 @@ function permAlone(str) {
             noRepeatsArray.push(currentString);
         }
     }
+    /* There is an error with no repeats array algorithm */
 
-    document.getElementById("debug1").innerHTML = "noRepeatsArray: " + noRepeatsArray;
+    document.getElementById("debug0").innerHTML = "Given string: " + str;
+    document.getElementById("debug1").innerHTML = "All permutations: " + allPermutationsArray;
+    document.getElementById("debug2").innerHTML = "noRepeatsArray: " + noRepeatsArray;
 
     return noRepeatsArray.length;
 }
   
-permAlone('abc');
+permAlone('aab');
   
 
 
