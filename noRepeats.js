@@ -21,6 +21,7 @@ function permAlone(str) {
                 let lastIndex = len - 1;
                 let lastChar = string.slice(len-1); //store the last character of string
                 let restOfString = string.slice(0, len-1); //store everything up to last character
+                document.getElementById("debug1").innerHTML = restOfString;
                 allPermutations = merge(generatePermutations(restOfString), lastChar); //recursively merge the last character into the rest of the string
             }
         }
@@ -29,8 +30,10 @@ function permAlone(str) {
     }
 
     const merge = (arrayList, lastChar) => { //a helper function for generatePermutations
+
+        document.getElementById("debug2").innerHTML = arrayList;
+
         let resultArray = [];
-        /** Code goes here */
         for (let i = 0; i < arrayList.length; i++) {
             let currentString = arrayList[i];
             for (let j = 0; j < currentString.length; j++) {
@@ -84,8 +87,12 @@ function permAlone(str) {
         return false; //a repeating character hasn't been found, so return false
     }
 
+    document.getElementById("debug0").innerHTML = "Given string: " + str;
 
     let allPermutationsArray = generatePermutations(str);
+
+    document.getElementById("debug5").innerHTML = allPermutationsArray;
+
     let noRepeatsArray = [];
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
@@ -98,8 +105,9 @@ function permAlone(str) {
     return noRepeatsArray.length;
 }
   
-permAlone('aab');
+permAlone('abc');
   
+
 
 /*** Permutation Practice
  * 
