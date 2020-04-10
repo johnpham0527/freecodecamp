@@ -19,7 +19,23 @@ function permAlone(str) {
             }
         }
 
+        /* Flatten array here */
+
         return allPermutations;
+    }
+    
+    const flattenArray = (array) => {
+        let newArray = {};
+        let currentItem = array;
+
+        if (typeof currentItem === "string") {
+            newArray.push(currentItem);
+        }
+        else {
+            /* recursive call? */
+        }
+
+        return newArray;
     }
 
     const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
@@ -34,8 +50,6 @@ function permAlone(str) {
                 mostRecentChar = currentChar //set the most recently seen char to this current char
             }
         }
-        
-        /* I need to flatten the nested array here! */
 
         return false; //a repeating character hasn't been found, so return false
     }
