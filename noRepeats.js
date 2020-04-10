@@ -34,15 +34,18 @@ function permAlone(str) {
                 mostRecentChar = currentChar //set the most recently seen char to this current char
             }
         }
+        
+        /* I need to flatten the nested array here! */
 
         return false; //a repeating character hasn't been found, so return false
     }
 
     let allPermutationsArray = generatePermutations2(str);
     let noRepeatsArray = [];
+    let currentString = "";
 
     for (let i = 0; i < allPermutationsArray.length; i++) {
-        let currentString = allPermutationsArray[i];
+        currentString = allPermutationsArray[i];
         if (!containsRepeat(currentString)) {
             noRepeatsArray.push(currentString);
         }
