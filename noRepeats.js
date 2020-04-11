@@ -19,10 +19,6 @@ function permAlone(str) {
             }
         }
 
-        //let permutationObject = flattenArray(allPermutations)
-
-        //return permutationObject;
-
         return allPermutations;
     }
     
@@ -73,16 +69,6 @@ function permAlone(str) {
             count += allPermutationsObject[permutation]; //increase the count by this number of permutations
         }
     }
-
-    /*
-    for (let i = 0; i < allPermutationsArray.length; i++) {
-        currentString = allPermutationsArray[i];
-        if (!containsRepeat(currentString)) {
-            noRepeatsArray.push(currentString);
-        }
-    }
-    */
-    /* There is an error with containsRepeat algorithm */
 
     document.getElementById("debug0").innerHTML = "Given string: " + str;
     document.getElementById("debug1").innerHTML = "All permutations: " + allPermutationsArray;
