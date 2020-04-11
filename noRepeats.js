@@ -85,9 +85,9 @@ function permAlone(str) {
     /* There is an error with containsRepeat algorithm */
 
     document.getElementById("debug0").innerHTML = "Given string: " + str;
-    document.getElementById("debug2").innerHTML = "All permutations: " + allPermutationsArray;
+    document.getElementById("debug1").innerHTML = "All permutations: " + allPermutationsArray;
     document.getElementById("debug2").innerHTML = "Unique permutations: " + Object.keys(allPermutationsObject);
-    document.getElementById("debug3").innerHTML = "Count: " + count;
+    document.getElementById("debug3").innerHTML = "No repeats count: " + count;
 
     return count;
 }
