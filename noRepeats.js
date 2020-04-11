@@ -19,9 +19,11 @@ function permAlone(str) {
             }
         }
 
-        let permutationObject = flattenArray(allPermutations)
+        //let permutationObject = flattenArray(allPermutations)
 
-        return permutationObject;
+        //return permutationObject;
+
+        return allPermutations;
     }
     
     const flattenArray = (array, newObject = {}) => {
