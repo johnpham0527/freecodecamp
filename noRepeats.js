@@ -39,7 +39,8 @@ function permAlone(str) {
         }
         else {
             for (let i = 0; i < array.length; i++) { //iterate through all elements in the array
-                flattenArray(array[i], newObject); //flatten each element in the array using recursion
+                let currentItem2 = array[i];
+                flattenArray(currentItem2, newObject); //flatten each element in the array using recursion
             }
         }
 
