@@ -19,10 +19,9 @@ function permAlone(str) {
             }
         }
 
-        /* Flatten array here */
         let permutationObject = flattenArray(allPermutations)
 
-        return allPermutations;
+        return permutationObject;
     }
     
     const flattenArray = (array, newObject = {}) => {
@@ -61,23 +60,30 @@ function permAlone(str) {
         return false; //a repeating character hasn't been found, so return false
     }
 
-    let allPermutationsArray = generatePermutations2(str);
-    let noRepeatsArray = [];
-    let currentString = "";
+    let allPermutationsObject = generatePermutations2(str);
+    let count = 0;
 
+    for (let permutation in allPermutationsObject) { //iterate through all keys in the permutation object
+        if (!containsRepeat(permutation)) { //the current key contains a repeat
+            count += allPermutationsObject[permutation]; //increase the count by this number of permutations
+        }
+    }
+
+    /*
     for (let i = 0; i < allPermutationsArray.length; i++) {
         currentString = allPermutationsArray[i];
         if (!containsRepeat(currentString)) {
             noRepeatsArray.push(currentString);
         }
     }
+    */
     /* There is an error with containsRepeat algorithm */
 
     document.getElementById("debug0").innerHTML = "Given string: " + str;
-    document.getElementById("debug1").innerHTML = "All permutations: " + allPermutationsArray;
-    document.getElementById("debug2").innerHTML = "noRepeatsArray: " + noRepeatsArray;
+    document.getElementById("debug1").innerHTML = "All permutations: " + allPermutationsObject;
+    document.getElementById("debug2").innerHTML = "Count: " + count;
 
-    return noRepeatsArray.length;
+    return count;
 }
   
 permAlone('aab');
