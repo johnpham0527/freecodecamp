@@ -62,7 +62,8 @@ function permAlone(str) {
         return false; //a repeating character hasn't been found, so return false
     }
 
-    let allPermutationsObject = generatePermutations2(str);
+    let allPermutationsArray = generatePermutations2(str);
+    let allPermutationsObject = flattenArray(allPermutationsArray);
     let count = 0;
 
     for (let permutation in allPermutationsObject) { //iterate through all keys in the permutation object
