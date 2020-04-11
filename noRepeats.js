@@ -31,7 +31,8 @@ function permAlone(str) {
 
         if (typeof currentItem === "string") { //the current a permutation, not an array
             if (newObject.hasOwnProperty(currentItem)) { //the current item exists already in the object
-                newObject[currentItem] = newObject[currentItem]++; //increase the count by one
+                let currentValue = newObject[currentItem];
+                newObject[currentItem] = currentValue++; //increase the count by one
             }
             else {
                 newObject[currentItem] = 1; //the current item doesn't already exist, so start counting from 1
