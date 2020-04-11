@@ -20,22 +20,29 @@ function permAlone(str) {
         }
 
         /* Flatten array here */
+        let permutationObject = flattenArray(allPermutations)
 
         return allPermutations;
     }
     
-    const flattenArray = (array) => {
-        let newArray = {};
+    const flattenArray = (array, newObject = {}) => {
         let currentItem = array;
 
-        if (typeof currentItem === "string") {
-            newArray.push(currentItem);
+        if (typeof currentItem === "string") { //the current a permutation, not an array
+            if (newObject.hasOwnProperty(currentItem)) { //the current item exists already in the object
+                newObject[currentItem] = newObject[currentItem]++; //increase the count by one
+            }
+            else {
+                newObject[currentItem] = 1; //the current item doesn't already exist, so start counting from 1
+            }
         }
         else {
-            /* recursive call? */
+            for (let i = 0; i < array.length; i++) { //iterate through all elements in the array
+                flattenArray(array[i], newObject); //flatten each element in the array using recursion
+            }
         }
 
-        return newArray;
+        return newObject;
     }
 
     const containsRepeat = (string) => { //evaluate a string to see if any of its characters repeat
